@@ -79,4 +79,80 @@ This workflow automates the scraping of Trustpilot company reviews using **Brigh
 ---
 
 ## 🔄 Data Flow Summary
+User Input (URL)
+↓
+Bright Data API Trigger
+↓
+Snapshot ID Generated
+↓
+Status Check Loop
+↓
+Data Ready
+↓
+Download JSON
+↓
+Append to Google Sheet
+
+
+---
+
+## 🔐 Authentication & Configuration
+
+- **🔑 Bright Data:** Bearer Token via Environment Variable `BRIGHT_DATA_API_KEY`
+- **🧾 Google Sheets:** OAuth2 Integration via n8n
+- **🆔 Dataset ID:** `gd_lm5zmhwd2sni130p`
+
+---
+
+## ⚠️ Error Handling & Limitations
+
+### 💡 Features:
+- Built-in polling loop to wait for data readiness
+- Prevents infinite loops with conditional logic
+- Includes `include_errors=true` in Bright Data trigger
+- Handles rate limiting via 1-minute wait periods
+
+### ⚠️ Limitations:
+- Bright Data API usage limits may apply
+- Only 2 results per trigger by default (can be increased)
+- Requires compliance with Trustpilot's ToS and scraping policies
+
+---
+
+## 🧰 Setup Instructions
+
+1. **Create or access** your Bright Data account and get your API token.
+2. **Enable** Google Sheets API and connect your Google Account in n8n.
+3. **Deploy or access** an n8n instance (self-hosted or cloud).
+4. **Configure the following:**
+   - Set `BRIGHT_DATA_API_KEY` in environment variables.
+   - Ensure you have access to the correct Google Sheet and Dataset ID.
+5. **Test the workflow** by submitting a Trustpilot URL via the Form Trigger.
+
+---
+
+## 📈 Use Cases
+
+- 🧠 **Business Intelligence**: Competitor & sentiment analysis
+- 📊 **Data Analytics**: Trend analysis & customer feedback
+- 📣 **Marketing**: Reputation monitoring & brand health
+
+---
+
+## ♻️ Maintenance Tips
+
+- ✅ Monitor logs and Sheets for errors or mismatches
+- 🔐 Rotate API keys and credentials regularly
+- 🆕 Verify dataset ID with Bright Data updates
+- 🧪 Test scraping functionality on schedule
+
+---
+
+## 🚀 Automation Benefits
+
+- 🔁 Fully Automated Data Collection
+- ⚙️ Configurable and Scalable
+- 🛡️ Resilient to API failures
+- 📦 Standardized, structured data delivery
+
 
